@@ -29,7 +29,7 @@ import {auth} from './firebase/firebase.utils'
   render() {
     return (
       <div>
-        <Header />
+        <Header currentUser={this.state.currentUser}/>
         <Switch>
           <Route exact path="/" component={HomePage}/>
           <Route path="/shop" component={ShopPage} />

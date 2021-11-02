@@ -22,7 +22,7 @@ import {auth} from './firebase/firebase.utils'
   componentDidMount(){
     auth.onAuthStateChanged(user => {
       this.setState({currentUser: user})
-      console.log(user)
+ 
     })
   }
 

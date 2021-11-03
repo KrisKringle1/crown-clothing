@@ -32,7 +32,7 @@ import {auth, createUserProfileDocument} from './firebase/firebase.utils'
               ...snapShot.data()
             }
           })
-          console.log(this.state)
+          
         })
       //sets username to null
       } else {

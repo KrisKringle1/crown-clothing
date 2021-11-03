@@ -20,8 +20,24 @@ import {auth, createUserProfileDocument} from './firebase/firebase.utils'
   }
   unsubscribeFromAuth = null
   componentDidMount(){
-    this.unsubscibeFromAuth = auth.onAuthStateChanged(async user => {
-      createUserProfileDocument(user)
+    this.unsubscibeFromAuth = auth.onAuthStateChanged(async userAuth => {
+      //if username isnt null
+      if(userAuth){
+        const userRef = await createUserProfileDocument(userAuth);
+        //query for the id and all the data within the user profile
+        userRef.onSnapshot(snapShot => {
+          this.setState({
+            currentUser: {
+              id: snapShot.id,
+              ...snapShot.data()
+            }
+          })
+          console.log(this.state)
+        })
+      //sets username to null
+      } else {
+        this.setState({currentUser: userAuth})
+      }
  
     })
   }

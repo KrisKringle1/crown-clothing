@@ -31,7 +31,7 @@ class SignIn extends React.Component {
 
     handleChange = e => {
         const {value, name } = e.target
-
++
         this.setState({ [name]: value})
     }
 
@@ -49,7 +49,7 @@ class SignIn extends React.Component {
             
                     <div className="buttons">
                         <CustomButton type="submit" value="Submit Form" >Sign In</CustomButton>
-                        <CustomButton onClick={signInWithGoogle} isGoogleSignIn value="Submit Form" >Sign in with google</CustomButton>
+                        <CustomButton type="button" onClick={signInWithGoogle} isGoogleSignIn value="Submit Form" >Sign in with google</CustomButton>
                     </div>
                     
                 </form>
